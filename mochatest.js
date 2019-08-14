@@ -26,7 +26,7 @@ describe("self test",function(){
   })
 });
 
-//.5
+//5
 describe("imp div", function(){
   it("retrun 4/2=2",function(){
   	assert.equal(imp.div(4,2),2)
