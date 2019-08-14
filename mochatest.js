@@ -1,11 +1,11 @@
-//https://mochajs.org/
 var assert = require('assert');
-var imp = require("./app.js")
+var imp = require("./app.js");
+var rahul = require('chai').expect;
 
 //.1
 describe("imp add",function(){
 	 it("returns 4+5=9",function(){
-	 	assert.equal(imp.add(4,5), 9);
+	 	assert.equal(imp.add(4,5), 9); 
 	 });
 
 //.2
@@ -26,7 +26,7 @@ describe("self test",function(){
   })
 });
 
-//5
+//.5
 describe("imp div", function(){
   it("retrun 4/2=2",function(){
   	assert.equal(imp.div(4,2),2)
@@ -51,6 +51,7 @@ describe("imp fun2", function(){
 //.8
 function pow(x,y){
 	return x**y
+
 }
 
 describe("pow",function(){
@@ -94,14 +95,32 @@ afterEach(function(){
 //.10 //inclusive test 
 describe('Array', function() {   //describe.skip
     // pending test below
-    it('should return -1 when the value is not present');
+    specify('should return -1 when the value is not present');
 });
 
 //Exclusive Tests(it will excute only function or one test case )
 
-describe("exclusivity testcase",function(){   //describe.only
-	it("concat two strings",function(){
+context("exclusivity testcase",function(){   //describe.only
+	specify("concat two strings",function(){
 		assert.equal("gowrav"+"rahul","gowravrahul")
+	})
+})
+
+
+//.11
+describe("without return function",function(){
+    it("testing",function(){
+    	var res = 3+5*2
+    	var conc = "gowrav"+"securifi"
+    	rahul(res).to.not.equal(12)
+        assert.equal(conc,"gowravsecurifi")
+    })
+});
+
+
+describe("incremented fun",function(){
+	it("value is incer",function(){
+		assert.equal(imp.obj.fun1(),101)
 	})
 })
 
