@@ -1,0 +1,21 @@
+{
+  "name": "mochatest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mochatest.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^6.2.0"
+  },
+  "dependencies": {
+    "assert": "^2.0.0",
+    "chai": "^4.2.0",
+    "mysql": "^2.17.1",
+    "readline": "^1.3.0",
+    "redis": "^2.8.0"
+  }
+}
