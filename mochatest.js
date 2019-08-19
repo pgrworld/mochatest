@@ -1,6 +1,9 @@
 var assert = require('assert');
 var imp = require("./app.js");
 var rahul = require('chai').expect;
+var msg =require("./sql.js");
+var redis = require("./redis.js");
+var output=""
 
 //.1
 describe("imp add",function(){
@@ -117,10 +120,54 @@ describe("without return function",function(){
     })
 });
 
-
+//.12
 describe("incremented fun",function(){
 	it("value is incer",function(){
 		assert.equal(imp.obj.fun1(),101)
 	})
 })
 
+
+
+
+
+
+//.13********************************mysql test-cases************************************
+describe("testing",function(){
+	it("testing sql",function(){
+	 msg.myfun()
+	 exports.myfun2=function(){
+	 assert.equal(msg.output,'[{"name":"swaroop","empID":"s0154"}]')
+	 }
+	})
+})
+
+describe("sql function",function(){
+	it("sql table data",function(){
+		msg.myfun1()
+		exports.myfun3=function(){
+		assert.equal(msg.output1,'[{"name":"rahul","empID":"s0156"}]')
+		}
+	})
+})
+
+
+//.14********************************redis test-cases************************************
+describe("Redis testing",function(){
+	it("redis testing",function(){
+		redis.fun3()
+		exports.myfun4=function(){
+		assert.equal(redis.output,"securifi embedded systems")
+		}
+	})
+});
+
+//.15
+describe("Redis testing",function(){
+	it("redis testing",function(){
+		redis.fun5()
+		exports.myfun6=function(){
+		assert.equal(redis.output1,"i love my india")
+		}
+	})
+});
