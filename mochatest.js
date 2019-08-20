@@ -171,3 +171,12 @@ describe("Redis testing",function(){
 		}
 	})
 });
+
+
+
+//.1
+describe("redis testing 1",function(){
+	it("redis testing",function(){
+		assert.equal(redis.obj.redisfun2(result),"hyderabad")
+	})
+})
