@@ -76,3 +76,19 @@ exports.fun5 = function(){
 		mocha.myfun6()
 	})
 };
+
+//.1
+client.set("key2","hyderabad");
+
+client.get("key2",function(err,res){
+ result = res
+ mocha.mochafun(result)
+})
+
+
+obj.redisfun2=function(result){
+   console.log(result)
+   return result
+}
+
+module.exports = {obj}
