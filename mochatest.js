@@ -1,26 +1,27 @@
 var assert = require('assert');
-var imp = require("./app.js");
 var rahul = require('chai').expect;
-var msg =require("./sql.js");
+var app = require("./app.js")
 var redis = require("./redis.js");
-var output=""
+var sql =require("./sql.js");
+
 
 //.1
 describe("imp add",function(){
 	 it("returns 4+5=9",function(){
-	 	assert.equal(imp.add(4,5), 9); 
+	 	assert.equal(app.add(4,5), 9); 
 	 });
 
 //.2
 	it("return 4-5=-1",function(){
-		assert.equal(imp.sub(4,5),-1);
+		assert.equal(app.sub(4,5),-1);
 	});
 
  //.3  
     it("return 4*5=20",function(){
-    	assert.equal(imp.mul(4,5),20);
+    	assert.equal(app.mul(4,5),20);
     });
 });
+
 
 //.4
 describe("self test",function(){
@@ -29,24 +30,27 @@ describe("self test",function(){
   })
 });
 
+
 //.5
 describe("imp div", function(){
   it("retrun 4/2=2",function(){
-  	assert.equal(imp.div(4,2),2)
+  	assert.equal(app.div(4,2),2)
   });
 });
+
 
 //.6
 describe("imf fun1",function(){
 	it("return arg1+arg2",function(){
-		assert.equal(imp.fun1("gowrav","rahul"),"gowravrahul")
+		assert.equal(app.fun1("gowrav","rahul"),"gowravrahul")
 	})
 })
+
 
 //.7
 describe("imp fun2", function(){
 	it("return", function(){
-		assert.equal(imp.fun2(1,2,3,4,5,6,7,8),84)
+		assert.equal(app.fun2(1,2,3,4,5,6,7,8),84)
 	})
 })
 
@@ -123,60 +127,60 @@ describe("without return function",function(){
 //.12
 describe("incremented fun",function(){
 	it("value is incer",function(){
-		assert.equal(imp.obj.fun1(),101)
+		assert.equal(app.obj.fun1(),101)
 	})
 })
 
 
-
-
-
-
-//.13********************************mysql test-cases************************************
-describe("testing",function(){
-	it("testing sql",function(){
-	 msg.myfun()
-	 exports.myfun2=function(){
-	 assert.equal(msg.output,'[{"name":"swaroop","empID":"s0154"}]')
-	 }
-	})
-})
-
-describe("sql function",function(){
-	it("sql table data",function(){
-		msg.myfun1()
-		exports.myfun3=function(){
-		assert.equal(msg.output1,'[{"name":"rahul","empID":"s0156"}]')
-		}
-	})
-})
-
-
-//.14********************************redis test-cases************************************
-describe("Redis testing",function(){
-	it("redis testing",function(){
-		redis.fun3()
-		exports.myfun4=function(){
-		assert.equal(redis.output,"securifi embedded systems")
-		}
-	})
-});
-
-//.15
-describe("Redis testing",function(){
-	it("redis testing",function(){
-		redis.fun5()
-		exports.myfun6=function(){
-		assert.equal(redis.output1,"i love my india")
-		}
-	})
-});
-
-
-
+//*********************************redis-test-cases*******************************************
 //.1
 describe("redis testing 1",function(){
 	it("redis testing",function(){
-		assert.equal(redis.obj.redisfun2(result),"hyderabad")
-	})
+	assert.equal(redis.obj.redisf1(),"vizag")
+	});
+});
+
+
+//.2
+describe("redis testing 2",function(){
+	it("redis testing",function(){
+	assert.equal(redis.obj.redisf2(),"ammerica")
+	});
 })
+
+
+//.3
+describe("redis testing 3",function(){
+	it("redis testing",function(){
+	assert.equal(redis.obj.redisf3(),"i am rahul")
+	});
+})
+
+
+//.4
+describe("redis testing 4",function(){
+	it("redis testing",function(){
+	assert.equal(redis.obj.redisf4(),"final function")
+	});
+})
+
+
+
+//****************************sql-test-cases********************************************************
+
+
+//.1
+describe("sql testing 1",function(){
+	it("sql testing",function(){
+	assert.equal(sql.obj.sqlf1(), '[{"name":"swaroop","empID":"s0154"}]')
+	});
+});
+
+
+//.2
+describe("sql testing 1",function(){
+	it("sql testing",function(){
+	assert.equal(sql.obj.sqlf2(), '[{"name":"rahul","empID":"s0156"}]')
+	});
+})
+
