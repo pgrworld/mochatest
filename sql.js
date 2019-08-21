@@ -5,25 +5,25 @@
   password: "1111",
   database: "MOCHATEST"
 });
- var output;
- var mocha=require("./mochatest.js")
+ var obj={}
+ var response="value will be updated soon"
 
-exports.myfun=function(){
-	conc.query('select name,empID from mochaTABLE1 WHERE name=?', ["swaroop"],function(err,res){
-		exports.output=JSON.stringify(res)
-		mocha.myfun2()
-		if(err){
-			throw err
-		}else{
-			//console.log(res)
-		}
-	})	
-};
+conc.query('select name,empID from mochaTABLE1 WHERE name=?', ["swaroop"],function(err,res){
+obj.sqlf1 = function(){
+response=JSON.stringify(res)
+return response    
+ };
+});
 
 
-exports.myfun1=function(){
-	conc.query('select name,empID from mochaTABLE1 where name=?',["rahul"],function(err,res){
-		exports.output1=JSON.stringify(res);
-		  mocha.myfun3()
-	})
-}
+conc.query('select name,empID from mochaTABLE1 where name=?',["rahul"],function(err,res){
+obj.sqlf2 = function(){
+response=JSON.stringify(res)
+return response    
+ };	
+});
+
+
+module.exports = {obj}
+
+
