@@ -179,16 +179,19 @@ describe("sql testing 1",function(){
 
 //.2
 describe("sql testing 2",function(){
-	it("sql testing",function(){
+	it("sql testing",function(done){
 	assert.equal(sql.obj.sqlf2(), '[{"name":"rahul","empID":"s0156"}]')
+	done()
 	});
 })
 
 
 //.3
 describe("sql testing 3",function(){
-	it("sql testing",function(){
+	this.timeout(5000)
+	it("sql testing",function(done){
 	assert.equal(sql.obj.sqlf3(), '[{"name":"murali","empID":"s0123"}]')
+	setTimeout(done,1000)
 	});
 })
 
@@ -201,4 +204,6 @@ describe("sql testing 4",function(){
 	setTimeout(done,2000)
 	});
 })
+
+
 
