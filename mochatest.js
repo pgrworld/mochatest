@@ -40,7 +40,7 @@ describe("imp div", function(){
 
 
 //.6
-describe("imf fun1",function(){
+describe.skip("imf fun1",function(){
 	it("return arg1+arg2",function(){
 		assert.equal(app.fun1("gowrav","rahul"),"gowravrahul")
 	})
@@ -178,9 +178,27 @@ describe("sql testing 1",function(){
 
 
 //.2
-describe("sql testing 1",function(){
+describe("sql testing 2",function(){
 	it("sql testing",function(){
 	assert.equal(sql.obj.sqlf2(), '[{"name":"rahul","empID":"s0156"}]')
+	});
+})
+
+
+//.3
+describe("sql testing 3",function(){
+	it("sql testing",function(){
+	assert.equal(sql.obj.sqlf3(), '[{"name":"murali","empID":"s0123"}]')
+	});
+})
+
+
+//.4
+describe("sql testing 4",function(){
+	this.timeout(9000)
+	it("sql testing",function(done){
+	assert.equal(sql.obj.sqlf4(), '[{"name":"ravi","empID":"s0234"}]')
+	setTimeout(done,2000)
 	});
 })
 
