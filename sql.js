@@ -22,7 +22,7 @@ return response
 
 //.2
 sql.function2 = function(){
-conc.query('select name,empID from mochaTABLE1 where name=?',["rahul"],function(err,res){
+conc.query('delete name from mochaTABLE1 where name=?',["rahul"],function(err,res){
 obj.sqlf2 = function(){
 response=JSON.stringify(res)
 return response    
@@ -32,7 +32,7 @@ return response
 
 //.3
 sql.function3 = function(){
-conc.query('select name,empID from mochaTABLE1 where name=?',["murali"],function(err,res){
+conc.query('select name,empID from mochaTABLE1 where name=?',["gowrav rahul"],function(err,res){
 obj.sqlf3 = function(){
 response=JSON.stringify(res)
 return response    
@@ -51,8 +51,4 @@ return response
 };
 
 module.exports = {obj,sql}
-
-
-
-
 
