@@ -60,8 +60,3 @@ return response;
 
 
 module.exports = {obj}
-
-
-
-
-
