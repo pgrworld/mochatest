@@ -5,6 +5,7 @@ var redis = require("./redis.js");
 var sql =require("./sql.js");
 
 
+
 //.1
 describe("imp add",function(){
 	 it("returns 4+5=9",function(){
@@ -171,6 +172,7 @@ describe("redis testing 4",function(){
 
 //.1
 describe("sql testing 1",function(){
+	sql.sql.function1()
 	it("sql testing",function(){
 	assert.equal(sql.obj.sqlf1(), '[{"name":"swaroop","empID":"s0154"}]')
 	});
@@ -179,6 +181,7 @@ describe("sql testing 1",function(){
 
 //.2
 describe("sql testing 2",function(){
+	sql.sql.function2()
 	it("sql testing",function(done){
 	assert.equal(sql.obj.sqlf2(), '[{"name":"rahul","empID":"s0156"}]')
 	done()
@@ -188,6 +191,7 @@ describe("sql testing 2",function(){
 
 //.3
 describe("sql testing 3",function(){
+	sql.sql.function3()
 	this.timeout(5000)
 	it("sql testing",function(done){
 	assert.equal(sql.obj.sqlf3(), '[{"name":"murali","empID":"s0123"}]')
@@ -198,6 +202,7 @@ describe("sql testing 3",function(){
 
 //.4
 describe("sql testing 4",function(){
+	sql.sql.function4()
 	this.timeout(9000)
 	it("sql testing",function(done){
 	assert.equal(sql.obj.sqlf4(), '[{"name":"ravi","empID":"s0234"}]')
@@ -206,4 +211,8 @@ describe("sql testing 4",function(){
 })
 
 
+
+// afterEach(function(){
+// 	console.log("after for every test case will be printed")
+// });
 
