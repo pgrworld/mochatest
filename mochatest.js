@@ -183,7 +183,7 @@ describe("sql testing 1",function(){
 describe("sql testing 2",function(){
 	sql.sql.function2()
 	it("sql testing",function(done){
-	assert.equal(sql.obj.sqlf2(), '[{"name":"rahul","empID":"s0156"}]')
+	assert.equal(sql.obj.sqlf2(),)
 	done()
 	});
 })
@@ -194,7 +194,7 @@ describe("sql testing 3",function(){
 	sql.sql.function3()
 	this.timeout(5000)
 	it("sql testing",function(done){
-	assert.equal(sql.obj.sqlf3(), '[{"name":"murali","empID":"s0123"}]')
+	assert.equal(sql.obj.sqlf3(), '[{"name":"gowrav rahul","empID":"s0123"}]')
 	setTimeout(done,1000)
 	});
 })
@@ -210,9 +210,4 @@ describe("sql testing 4",function(){
 	});
 })
 
-
-
-// afterEach(function(){
-// 	console.log("after for every test case will be printed")
-// });
 
