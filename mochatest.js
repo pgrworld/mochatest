@@ -147,6 +147,7 @@ describe("incremented fun",function(){
 //*********************************redis-test-cases*******************************************
 //.1
 describe("redis testing 1",function(){
+	redis.redis.redisget1()
 	it("redis testing",function(done){
 	assert.equal(redis.obj.redisf1(),"vizag")
 	done()
@@ -156,38 +157,59 @@ describe("redis testing 1",function(){
 
 //.2
 describe("redis testing 2",function(){
+	redis.redis.redisget2()
 	it("redis testing",function(done){
-	assert.equal(redis.obj.redisf2(),"ammerica")
+	assert.equal(redis.obj.redisf2(),1)
 	done()
 	});
-})
+});
 
 
 //.3
 describe("redis testing 3",function(){
+	redis.redis.redisget3()
 	it("redis testing",function(done){
-	assert.equal(redis.obj.redisf3(),"i am rahul")
+	assert.equal(redis.obj.redisf3(),1)
 	done()
 	});
-})
+});
 
 
 //.4
 describe("redis testing 4",function(){
+	redis.redis.redisget4()
 	it("redis testing",function(done){
-	assert.equal(redis.obj.redisf4(),"final function")
+	assert.equal(redis.obj.redisf4(), [ 'vizag', null, 'i am rahul', 'final function' ])
 	done()
 	});
-})
+});
 
 
+//.5
+describe("redis testing 5",function(){
+	redis.redis.redisget5()
+	it("redis testing",function(done){
+    assert.equal(redis.obj.redisf5(), 15 )
+    done()
+	})
+});
+
+
+//.6
+describe("redis testing 6",function(){
+	redis.redis.redisget6()
+	it("redis testing",function(done){
+    assert.equal(redis.obj.redisf6(),[ 'msetkey1', 'msetkey2' ])
+    done()
+	})
+});
 
 //****************************sql-test-cases********************************************************
 
 
 //.1
 describe("sql testing 1",function(){
-	sql.sql.function1()
+	 sql.sql.function1()
 	it("sql testing",function(done){
 	assert.equal(sql.obj.sqlf1(), '[{"name":"swaroop","empID":"s0154"}]')
 	done()
@@ -223,4 +245,5 @@ describe("sql testing 4",function(){
 	setTimeout(done,1000)
 	});
 })
+
 
