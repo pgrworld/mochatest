@@ -1,13 +1,13 @@
- var mysql = require('mysql');
+  var mysql = require('mysql');
  var sql={};
- var obj={}
  var conc = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "1111",
   database: "MOCHATEST"
 });
-
+ var obj={}
+ var response=""
 
 
 
@@ -53,6 +53,7 @@ return response
 };
 
 module.exports = {obj,sql}
+
 
 
 
