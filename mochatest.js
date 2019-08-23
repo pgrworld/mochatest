@@ -204,6 +204,35 @@ describe("redis testing 6",function(){
 	})
 });
 
+//.7 
+describe("reids testing 7",function(){
+	redis.redis.redisget7()
+	it("redis testing",function(done){
+	assert.equal(redis.obj.redisf7(), [  'key7,key8,key9,key5,key3,key6,key4,key,key1' ])
+	done()
+	})
+});
+
+//.8
+describe("redis testing 8",function(){
+	redis.redis.redisget8()
+	it("reids testing",function(done){
+    assert.equal(redis.obj.redisf8(),11)
+    done()
+	})
+})
+
+
+//.9
+describe("redis testing 9",function(){
+	redis.redis.redisget9()
+	it("redis testing",function(done){
+	assert.equal(redis.obj.redisf9(), "four" )
+	done()
+	});
+});
+
+
 //****************************sql-test-cases********************************************************
 
 
