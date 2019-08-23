@@ -3,6 +3,8 @@ var client = redis.createClient();
 var obj = {};
 var redis= {};
 
+
+
 //self invoking
 (function () {
     client.set("key1","vizag");
@@ -10,7 +12,9 @@ var redis= {};
 	client.set("key3","i am rahul");
 	client.set("key4","final function");
 	client.set("key5","length checking");
-	client.mset("key6","msetkey1","key7","msetkey2","key8","msetkey3")
+	client.mset("key6","msetkey1","key7","msetkey2","key8","msetkey3");
+	client.set("key9",10);
+	client.lpush("lpush","one","two","three","four")
 }());
 
 
@@ -76,8 +80,39 @@ return response;
  });
 };
 
+//.7
+redis.redisget7 = function(){
+client.keys("key*",function(err,res){
+obj.redisf7 = function(){
+response=res.toString()
+return response
+  };
+ });
+};
+
+//.8
+redis.redisget8 = function(){
+client.incr("key9",function(err,res){
+obj.redisf8 = function(){
+return res
+  };
+ });
+};
+
+//.9
+redis.redisget9 = function(){
+client.lpop("lpush",function(err,res){
+obj.redisf9 = function(){
+return res
+  };
+ });
+}
+
 
 module.exports = {obj,redis}
+
+
+
 
 
 
