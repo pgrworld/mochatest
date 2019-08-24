@@ -12,13 +12,11 @@
 
 
 //.1
-sql.function1 = function(){
+sql.function1 = function(callback){
 conc.query('select name,empID from mochaTABLE1 WHERE name=?', ["swaroop"],function(err,res){
-obj.sqlf1 = function(){
-response=JSON.stringify(res)
-return response    
-  };
+	callback(res)
  });
+  return callback()
 };
 
 //.2
@@ -53,7 +51,6 @@ return response
 };
 
 module.exports = {obj,sql}
-
 
 
 
