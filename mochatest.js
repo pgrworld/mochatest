@@ -208,7 +208,7 @@ describe("redis testing 6",function(){
 describe("reids testing 7",function(){
 	redis.redis.redisget7()
 	it("redis testing",function(done){
-	assert.equal(redis.obj.redisf7(), [  'key7,key8,key9,key5,key3,key6,key4,key,key1' ])
+	assert.equal(redis.obj.redisf7(), [  'key9,key3,key1,key,key5,key4,key7,key6,key8' ])
 	done()
 	})
 });
@@ -234,13 +234,10 @@ describe("redis testing 9",function(){
 
 
 //****************************sql-test-cases********************************************************
-
-
 //.1
 describe("sql testing 1",function(){
-	 sql.sql.function1()
 	it("sql testing",function(done){
-	assert.equal(sql.obj.sqlf1(), '[{"name":"swaroop","empID":"s0154"}]')
+	assert.equal(sql.sql.function1(function(value){return value}), '[{"name":"swaroop","empID":"s0154"}]')
 	done()
 	});
 });
