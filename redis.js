@@ -1,8 +1,6 @@
 var redis = require("redis");
 var client = redis.createClient();
-var obj = {};
 var redis= {};
-
 
 
 //self invoking
@@ -19,99 +17,68 @@ var redis= {};
 
 
 //.1
-redis.redisget1 = function(){
+redis.redisget1 = function(callback){
 client.get("key1",function(err,res){
-obj.redisf1 = function(){
-return res;
-  };
+callback(res);
  });
 };
 
-
 //.2
-redis.redisget2 = function(){
+redis.redisget2 = function(callback){
 client.del("key2",function(err,res){
-obj.redisf2 = function(){
-return res;
- };
-});
+callback(res)
+ });
 };
 
-
 //.3
-redis.redisget3 = function(){
+redis.redisget3 = function(callback){
 client.exists("key3",function(err,res){
-obj.redisf3 = function(){
-return res;
- };
+callback(res)
 });
 };
 
 
 //.4
-redis.redisget4 = function(){
+redis.redisget4 = function(callback){
 client.mget("key1","key2","key3","key4",function(err,res){
-obj.redisf4 = function(){
 response=res.toString()
-console.log(response)
-return response;
- };
+callback(response)
 });
 };
 
 
 //.5
-redis.redisget5 = function(){
+redis.redisget5 = function(callback){
 client.strlen("key5",function(err,res){
-obj.redisf5 = function(){
-return res
-  };
+callback(res)
  });
 };
 
 
 //.6
-redis.redisget6 = function(){
+redis.redisget6 = function(callback){
 client.mget("key6","key7",function(err,res){
-obj.redisf6 = function(){
 response = res.toString()
-return response;
-  }
+callback(response)
  });
 };
 
 //.7
-redis.redisget7 = function(){
-client.keys("key*",function(err,res){
-obj.redisf7 = function(){
-response=res.toString()
-return response
-  };
+redis.redisget8 = function(callback){
+client.incr("key9",function(err,res){
+callback(res)
  });
 };
 
 //.8
-redis.redisget8 = function(){
-client.incr("key9",function(err,res){
-obj.redisf8 = function(){
-return res
-  };
- });
-};
-
-//.9
-redis.redisget9 = function(){
+redis.redisget9 = function(callback){
 client.lpop("lpush",function(err,res){
-obj.redisf9 = function(){
-return res
-  };
+callback(res)
  });
 }
 
 
-module.exports = {obj,redis}
-
-
+module.exports = {redis}
 
 
 
