@@ -147,9 +147,10 @@ describe("incremented fun",function(){
 //*********************************redis-test-cases*******************************************
 //.1
 describe("redis testing 1",function(){
-	redis.redis.redisget1()
 	it("redis testing",function(done){
-	assert.equal(redis.obj.redisf1(),"vizag")
+	redis.redis.redisget1(function(value){
+		assert.equal(value,"vizag")
+	})
 	done()
 	});
 });
@@ -157,9 +158,10 @@ describe("redis testing 1",function(){
 
 //.2
 describe("redis testing 2",function(){
-	redis.redis.redisget2()
 	it("redis testing",function(done){
-	assert.equal(redis.obj.redisf2(),1)
+	redis.redis.redisget2(function(value){
+	assert.equal(value,1)
+	})
 	done()
 	});
 });
@@ -167,9 +169,10 @@ describe("redis testing 2",function(){
 
 //.3
 describe("redis testing 3",function(){
-	redis.redis.redisget3()
 	it("redis testing",function(done){
-	assert.equal(redis.obj.redisf3(),1)
+	redis.redis.redisget3(function(value){
+    assert.equal(value,1)
+	})
 	done()
 	});
 });
@@ -177,9 +180,10 @@ describe("redis testing 3",function(){
 
 //.4
 describe("redis testing 4",function(){
-	redis.redis.redisget4()
 	it("redis testing",function(done){
-	assert.equal(redis.obj.redisf4(), [ 'vizag', null, 'i am rahul', 'final function' ])
+	redis.redis.redisget4(function(value){
+	assert.equal(value, [ 'vizag', null, 'i am rahul', 'final function' ])	
+	})
 	done()
 	});
 });
@@ -187,9 +191,10 @@ describe("redis testing 4",function(){
 
 //.5
 describe("redis testing 5",function(){
-	redis.redis.redisget5()
 	it("redis testing",function(done){
-    assert.equal(redis.obj.redisf5(), 15 )
+	redis.redis.redisget5(function(value){
+	assert.equal(value,15)	
+	})
     done()
 	})
 });
@@ -197,79 +202,78 @@ describe("redis testing 5",function(){
 
 //.6
 describe("redis testing 6",function(){
-	redis.redis.redisget6()
 	it("redis testing",function(done){
-    assert.equal(redis.obj.redisf6(),[ 'msetkey1', 'msetkey2' ])
+	redis.redis.redisget6(function(value){
+	assert.equal(value,[ 'msetkey1', 'msetkey2' ])	
+	})
     done()
 	})
 });
 
-//.7 
-describe("reids testing 7",function(){
-	redis.redis.redisget7()
-	it("redis testing",function(done){
-	assert.equal(redis.obj.redisf7(), [  'key9,key3,key1,key,key5,key4,key7,key6,key8' ])
-	done()
-	})
-});
-
-//.8
+//.7
 describe("redis testing 8",function(){
-	redis.redis.redisget8()
 	it("reids testing",function(done){
-    assert.equal(redis.obj.redisf8(),11)
+	redis.redis.redisget8(function(value){
+	assert.equal(value,11)	
+	})
     done()
 	})
 })
 
 
-//.9
+//.8
 describe("redis testing 9",function(){
-	redis.redis.redisget9()
 	it("redis testing",function(done){
-	assert.equal(redis.obj.redisf9(), "four" )
+	redis.redis.redisget9(function(value){
+	assert.equal(value, "four" )	
+	})
 	done()
 	});
 });
 
 
 //****************************sql-test-cases********************************************************
-//.1
+//.1 
 describe("sql testing 1",function(){
 	it("sql testing",function(done){
-	assert.equal(sql.sql.function1(function(value){return value}), '[{"name":"swaroop","empID":"s0154"}]')
+	sql.sql.function1(function(value){
+	response = JSON.stringify(value)
+	assert.equal(response,'[{"name":"swaroop","empID":"s0154"}]')
+  })
 	done()
 	});
 });
 
 
-//.2
+//.2 
 describe("sql testing 2",function(){
-	sql.sql.function2("rahul")
 	it("sql testing",function(done){
-	assert.equal(sql.obj.sqlf2(),)
+	sql.sql.function2(function(value){
+	assert.equal(value,)
+  });
 	done()
 	});
 })
 
 //.3
 describe("sql testing 3",function(){
-	sql.sql.function3()
-	this.timeout(9000)
 	it("sql testing",function(done){
-	assert.equal(sql.obj.sqlf3(), '{"fieldCount":0,"affectedRows":0,"insertId":0,"serverStatus":34,"warningCount":0,"message":"(Rows matched: 0  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}')
-	setTimeout(done,2000)
+	sql.sql.function3(function(value){
+	response=JSON.stringify(value)
+	assert.equal(response,'{"fieldCount":0,"affectedRows":0,"insertId":0,"serverStatus":34,"warningCount":0,"message":"(Rows matched: 0  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}')
+  });
+    done()
 	});
 })
 
 //.4
 describe("sql testing 4",function(){
-	sql.sql.function4("hello","1234")
-	this.timeout(5000)
 	it("sql testing",function(done){
-	assert.equal(sql.obj.sqlf4(),'{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}')
-	setTimeout(done,1000)
+	sql.sql.function4("hello","1234",function(value){
+	response=JSON.stringify(value)
+	assert.equal(response,'{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}')
+  });
+    done()
 	});
-})
-
+});
 
